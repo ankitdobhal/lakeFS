@@ -1,6 +1,6 @@
 lazy val baseName = "lakefs-spark"
 
-lazy val projectVersion = "0.1.0-SNAPSHOT.5"
+lazy val projectVersion = "0.1.0-SNAPSHOT.1"
 isSnapshot := true
 
 // Spark versions 2.4.7 and 3.0.1 use different Scala versions.  Changing this is a deep
