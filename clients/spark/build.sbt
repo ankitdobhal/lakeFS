@@ -1,7 +1,7 @@
 lazy val baseName = "lakefs-spark"
 
-lazy val projectVersion = "0.1.0-SNAPSHOT.1"
-isSnapshot := true
+lazy val projectVersion = "0.1.0-SNAPSHOT"
+ThisBuild / isSnapshot := true
 
 // Spark versions 2.4.7 and 3.0.1 use different Scala versions.  Changing this is a deep
 // change, so key the Spark distinction by the Scala distinction.  sbt doesn't appear to
@@ -99,6 +99,10 @@ lazy val publishSettings = Seq(
   },
   // Remove all additional repository other than Maven Central from POM
   pomIncludeRepository := { _ => false },
+  credentials ++= Seq(
+    Credentials(Path.userHome / ".sbt" / "credentials"),
+    Credentials(Path.userHome / ".sbt" / "sonatype_credentials"),
+  )
 )
 
 lazy val sharedSettings = commonSettings ++ assemblySettings ++ publishSettings
@@ -134,11 +138,6 @@ ThisBuild / developers := List(
     email = "yoni.augarten@treeverse.io",
     url   = url("https://github.com/johnnyaug"),
   ),
-)
-
-credentials ++= Seq(
-  Credentials(Path.userHome / ".sbt" / "credentials"),
-  Credentials(Path.userHome / ".sbt" / "sonatype_credentials"),
 )
 
 ThisBuild / versionScheme := Some("early-semver")
