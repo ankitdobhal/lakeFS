@@ -2,12 +2,12 @@
 
 package hive_metastore
 
-import(
+import (
 	"bytes"
 	"context"
 	"fmt"
-	"time"
 	"github.com/apache/thrift/lib/go/thrift"
+	"time"
 )
 
 // (needed to ensure safety because of naive import list construction.)
@@ -44,4 +44,3 @@ const TABLE_TRANSACTIONAL_PROPERTIES = "transactional_properties"
 
 func init() {
 }
-
